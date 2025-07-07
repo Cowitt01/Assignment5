@@ -3,7 +3,7 @@ Cory Witt
 script.js
 INFO 1579
 Shaw
-07/07/2025
+07/06/2025
 */
  
 "use strict";
@@ -55,7 +55,8 @@ $(document).ready( () => {                                        // Document re
         if (error) {                                          // If there are errors, display a general error message.
              e.preventDefault();   
         } else {
-             $('#contactForm').submit();
+        
+            $('#contactForm').submit();
         }
  
     })
