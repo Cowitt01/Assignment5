@@ -3,18 +3,17 @@ Cory Witt
 script.js
 INFO 1579
 Shaw
-07/06/2025
+07/08/2025
 */
  
 "use strict";
-// This script handles form validation and submission for a contact form.
-// It checks for required fields, validates input, and prevents submission if there are errors.
-// It also handles resetting the form fields to their initial state.
-// The script uses jQuery for DOM manipulation and event handling.
+// The Food Service Survey program allows the user to provide their first name, 
+// age, meal name, selected meal, and meal rating. Input is then validated and if valid their 
+// selections are printed.If input values are not valid, appropriate error messages are displayed. 
 
 
-$(document).ready( () => {                                        // Document ready function to ensure the DOM is fully loaded before executing the script.
-    $('#submitButton').click((e)=> {                             // Handle click on Submit button
+$(document).ready( () => {                                         // Document ready function to ensure the DOM is fully loaded.script.
+    $('#submitButton').click((e)=> {                               // Handle Submit "click" event 
         const firstName         = $('#firstName').val().trim();
         const age               = $('#age').val().trim();
         const mealName          = $('#mealName').val().trim();
@@ -24,7 +23,7 @@ $(document).ready( () => {                                        // Document re
         let error = false;
 
         if(firstName == "") {                                 // Check if firstName is empty. If so, set error indicator and display error message.
-            $("#firstName").next().text("This field is required.");
+            $("#firstName").next().text("First Name is a required field.");
             error = true;
         } 
 
@@ -35,35 +34,34 @@ $(document).ready( () => {                                        // Document re
             $("#age").next().text("Age must be numeric.");
             error = true;
         } else if (age < 0) {
-           $("#age").next().text("Age must be a positive number.");  // Check if age is less than 0. If so, set error indicator and display error message.
+           $("#age").next().text("Age must be a positive number.");  // Check if age is less than 0 (negative). If so, set error indicator and display error message.
             error = true;
         }
 
-        if (mealName == "") {                                    // Check if mealName is empty. if so, set error indicator and display error message.
-            $("#mealName").next().text("Meal Name is a required field.");
+        if (mealName == "") {                                    // Check if meal name is empty. if so, set error indicator and display error message.
+            $("#mealName").next().text("Meal Name is a required value");
             error = true;
         }
 
-        if (mealHolder == "" || mealHolder == undefined) {     // Check if mealHolder is empty or undefined. If so, set error indicator and display error message.
-            $("#age").next().text("This field is requir.");
+        if (mealHolder == "" || mealHolder == undefined) {     // Check if meal selection is empty or undefined. If so, set error indicator and display error message.
+            $("#age").next().text("Meal Selection is a required value .");
             error = true;
         } 
-        if (mealRating == "" || mealRating == undefined) {     // Check if mealRating is empty or undefined. If so, set error indicator and display error message.
-            $("#age").next().text("This field is required.");
+        if (mealRating == "" || mealRating == undefined) {     // Check if meal ratingis empty or undefined. If so, set error indicator and display error message.
+            $("#age").next().text("Meal Rating is a required value.");
             error = true;
         } 
-        if (error) {                                          // If there are errors, display a general error message.
-             e.preventDefault();   
+        if (error) {                                          
+             e.preventDefault();                             // If there are errors, prevent default action (form submission).
         } else {
         
-            $('#contactForm').submit();
+            $('#contactForm').submit();                      // If no errors, submit the form.
         }
  
     })
 
 
-    $("#reset").click( () => { // Handle click on Reset button. The input fields are cleared out and focus is set back to firstName
-
+    $("#reset").click( () => { // Reset button click. Reset input fields.
         $("#firstName").val("");
         $("#age").val("");
       
